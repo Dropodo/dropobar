@@ -1,0 +1,128 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+	..\..\FrameXML\UI.xsd">
+	<Script File="Dropobar.lua"/>
+	<Frame name="DropobarFrame" parent="UIParent">
+		<Scripts>
+			<OnLoad>
+				Dropobar_OnLoad();
+			</OnLoad>
+			<OnEvent>
+				Dropobar_OnEvent(event,arg1);
+			</OnEvent>
+			<OnUpdate>
+				Dropobar_Update();
+			</OnUpdate>
+		</Scripts>
+	</Frame>
+    <Frame name="XP_Background" framestrata="BACKGROUND" parent="DropobarFrame">
+        <Size x="300" y="300"/>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="MainMenuExpBar"/>
+		</Anchors>
+		<Backdrop bgFile="Interface\AddOns\Dropobar\whitesquare">
+			<Color r="0" g="0" b="0" a="0.5" />
+		</Backdrop>
+        <Scripts>
+            <OnLoad>
+                this:Show()
+                this:SetHeight(MainMenuExpBar:GetHeight())
+                this:SetWidth(MainMenuExpBar:GetWidth())
+            </OnLoad>
+        </Scripts>
+    </Frame>
+    <Frame name="XP_Foreground" framestrata="MIDDLE" parent="DropobarFrame">
+        <Size x="300" y="300"/>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="XP_Background">
+				<Offset x="0" y="-2"/>
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\AddOns\Dropobar\whitesquare">
+			<Color r="0.5" g="0" b="0.8" a="1" />
+		</Backdrop>
+        <Scripts>
+            <OnLoad>
+                this:SetHeight(XP_Background:GetHeight()-2)
+                this:SetWidth(XP_Background:GetWidth())
+            </OnLoad>
+        </Scripts>
+    </Frame>
+    <Frame name="XP_Text_Frame" framestrata="TOOLTIP" parent="DropobarFrame">
+        <Size x="300" y="300"/>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="XP_Background">
+				<Offset x="0" y="-2"/>
+			</Anchor>
+		</Anchors>
+        <Layers>
+        	<Layer>
+				<FontString name="XP_Text" inherits="GameFontNormal" text="" justifyH="CENTER">
+					<Size>
+						<AbsDimension x="200" y="15" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOP" relativeTo="XP_Background">
+							<Offset>
+								<AbsDimension x="0" y="2.5" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="0" />
+				</FontString>
+        	</Layer>
+        </Layers>
+    </Frame>
+    <Frame name="XP_Topedge1" framestrata="MIDDLE" parent="DropobarFrame">
+        <Size x="300" y="300"/>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="XP_Background">
+				<Offset x="0" y="0.5"/>
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\AddOns\Dropobar\whitesquare">
+			<Color r="0.5" g="0.5" b="0.5" a="1" />
+		</Backdrop>
+        <Scripts>
+            <OnLoad>
+                this:SetHeight(1.5)
+                this:SetWidth(XP_Background:GetWidth())
+            </OnLoad>
+        </Scripts>
+    </Frame>
+    <Frame name="XP_Topedge2" framestrata="MIDDLE" parent="DropobarFrame">
+        <Size x="300" y="300"/>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="XP_Background">
+				<Offset x="0" y="-1"/>
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\AddOns\Dropobar\whitesquare">
+			<Color r="0.25" g="0.25" b="0.25" a="1" />
+		</Backdrop>
+        <Scripts>
+            <OnLoad>
+                this:SetHeight(1.0)
+                this:SetWidth(XP_Background:GetWidth())
+            </OnLoad>
+        </Scripts>
+    </Frame>
+    <Frame name="XP_Midground" framestrata="LOW" parent="DropobarFrame">
+        <Size x="300" y="300"/>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="XP_Background">
+				<Offset x="0" y="-2"/>
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\AddOns\Dropobar\whitesquare">
+			<Color r="0.3" g="0" b="0.5" a="1" />
+		</Backdrop>
+        <Scripts>
+            <OnLoad>
+                this:SetHeight(XP_Background:GetHeight()-2)
+                this:SetWidth(XP_Background:GetWidth())
+            </OnLoad>
+        </Scripts>
+    </Frame>
+</Ui>
