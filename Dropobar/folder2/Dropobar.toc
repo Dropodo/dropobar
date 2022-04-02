@@ -1,0 +1,5 @@
+## Interface: 11200
+## Title: Dropobar
+## Notes: Replaces the XP bar with a x20 zoomed-in version of itself. Also takes a screenshot every time you level up.
+Dropobar.lua
+Dropobar.xml
